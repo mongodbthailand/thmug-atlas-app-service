@@ -24,6 +24,8 @@
   },
   "type": "module",
   "dependencies": {
-    "@sveltejs/adapter-static": "^2.0.1"
+    "@sveltejs/adapter-static": "^2.0.1",
+    "svelte-confirm": "^0.0.0",
+    "svelte-dialogs": "^1.2.2"
   }
 }
