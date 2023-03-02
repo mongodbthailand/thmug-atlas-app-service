@@ -27,7 +27,11 @@ jobs:
         with:
           node-version: '18'
       - run: npm install mongodb-realm-cli
+      - run: mkdir -p build-artifact
       - uses: actions/download-artifact@v3
         with:
           name: build-artifact
-      - run: ls -lah
+          path: ./build-artifact
+      - run: realm-cli login --api-key ${{ secrets.API_KEY }} --private-api-key ${{ secrets.PRIVATE_API_KEY }} -y
+      - run: realm-cli push --remote ${{ secrets.APP_ID }} -s -c
+        working-directory: ./build-artifact
