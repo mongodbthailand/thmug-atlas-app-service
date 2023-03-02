@@ -1,4 +1,4 @@
-# Notes
+# Thailand MongoDB User Group #3
 
 ## โปรเจคนี้เป็นตัวอย่างการใช้งาน MongoDB Atlas App Service อย่างง่าย
 
