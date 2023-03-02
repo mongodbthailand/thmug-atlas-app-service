@@ -14,7 +14,8 @@ jobs:
         working-directory: ./atlas-hosting 
       - run: npm run build
         working-directory: ./atlas-hosting
-      - run: ls -lah
+      - run: mkdir -p ./data/hosting/files
+      - run: cp -R ./atlas-hosting/build/* ./data/hosting/files
       - uses: actions/upload-artifact@v3
         with:
           name: build-artifact
