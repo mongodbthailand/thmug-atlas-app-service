@@ -9,9 +9,9 @@
      * @type {any[]}
      */
     let data = [];
-    let newRow = [...columns];
     let who = '';
     let what = '';
+    let visibleButton = true;
 
     onMount(async () => {
         loadRows();
@@ -26,7 +26,11 @@
             d['result'].forEach((/** @type {{ [x: string]: any; }} */ element) => {
                 data = [...data, [element['_id'], element['who'], element['what'], element['when']]];
             });
-            console.log(d);
+            if(data.length > 9){
+                visibleButton = false;
+            }else{
+                visibleButton = true;
+            }
         })
         .catch((error) => {
             console.log(error);
@@ -48,7 +52,6 @@
         .then((d) => {            
             data = [];
             loadRows();
-            console.log(d);
         })
         .catch((error) => {
             console.log(error);
@@ -74,8 +77,8 @@
             )
             .then((response) => response.json())
             .then((d) => {            
-                data = data.filter((row) => row != rowToBeDeleted);   
-                console.log(d);
+                data = [];
+                loadRows();
             })
             .catch((error) => {
                 console.log(error);
@@ -114,8 +117,13 @@
             <td><input type="text" bind:value={what} /></td>
         </tr>
     </tbody>
-    <button on:click={addRow}> add </button>
 </table>
+{#if visibleButton}
+<div>
+    <button class="button" on:click={addRow}> add </button>
+</div>
+{/if}
+
 
 <style lang="postcss">
     .new {
@@ -124,6 +132,16 @@
     .new td:focus {
         color: black;
         background-color: aquamarine;
+    }
+    .button {
+        background-color: #4CAF50; /* Green */
+        border: none;
+        color: white;
+        padding: 5px 15px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
     }
     :global(html) {
         background-color: theme(colors.gray.100);
