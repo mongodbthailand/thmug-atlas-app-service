@@ -33,5 +33,5 @@ jobs:
           name: build-artifact
           path: ./build-artifact
       - run: realm-cli login --api-key ${{ secrets.API_KEY }} --private-api-key ${{ secrets.PRIVATE_API_KEY }} -y
-      - run: realm-cli push --remote ${{ secrets.APP_ID }} -s -c
+      - run: realm-cli push --remote ${{ vars.APP_ID }} -s -c
         working-directory: ./build-artifact
