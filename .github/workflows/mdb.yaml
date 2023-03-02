@@ -9,7 +9,6 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: '18'
-      - run: npm install mongodb-realm-cli
       - run: npm i
         working-directory: ./atlas-hosting 
       - run: npm run build
@@ -20,3 +19,15 @@ jobs:
         with:
           name: build-artifact
           path: ./data
+  deploy-svelte:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+      - run: npm install mongodb-realm-cli
+      - uses: actions/download-artifact@v3
+        with:
+          name: build-artifact
+      - run: ls -lah
