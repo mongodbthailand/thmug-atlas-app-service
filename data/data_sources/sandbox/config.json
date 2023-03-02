@@ -1,0 +1,10 @@
+{
+    "name": "sandbox",
+    "type": "mongodb-atlas",
+    "config": {
+        "clusterName": "sandbox",
+        "readPreference": "primary",
+        "wireProtocolEnabled": false
+    },
+    "version": 1
+}

@@ -1,0 +1,41 @@
+[
+    {
+        "name": "deleteAChat",
+        "private": false,
+        "run_as_system": true,
+        "can_evaluate": {
+            "%%request.httpReferrer": {
+                "$in": [
+                    "https://data-codth.mongodbstitch.com/",
+                    "http://localhost:5173/"
+                ]
+            }
+        }
+    },
+    {
+        "name": "readAllChats",
+        "private": false,
+        "run_as_system": true,
+        "can_evaluate": {
+            "%%request.httpReferrer": {
+                "$in": [
+                    "https://data-codth.mongodbstitch.com/",
+                    "http://localhost:5173/"
+                ]
+            }
+        }
+    },
+    {
+        "name": "createAChat",
+        "private": false,
+        "run_as_system": true,
+        "can_evaluate": {
+            "%%request.httpReferrer": {
+                "$in": [
+                    "https://data-codth.mongodbstitch.com/",
+                    "http://localhost:5173/"
+                ]
+            }
+        }
+    }
+]
